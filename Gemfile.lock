@@ -1,0 +1,17 @@
+GIT
+  remote: https://github.com/jrobertson/reverse-markdown
+  revision: 826c24fd172c10aa0e43f67cde65f151cbb1c75e
+  specs:
+    reverse-markdown (0.1.2)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    trollop (1.16.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  reverse-markdown!
+  trollop
