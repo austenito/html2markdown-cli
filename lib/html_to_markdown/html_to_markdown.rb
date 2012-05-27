@@ -11,6 +11,7 @@ class HtmlToMarkdown
   end
 
   def convert_file(file_name)
+    puts "Converting: #{file_name}"
     reverse_md = ReverseMarkdown.new
     contents = File.open(file_name).read
     markdown = reverse_md.parse_string(contents)

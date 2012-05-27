@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Easily specify HTML files to be converted into Markdown"
   s.authors     = ["Austen Ito"]
   s.email       = 'austen.dev@gmail.com'
-  s.files       = ["lib/html_to_markdown.rb"]
+  s.files       = ["lib/html_to_markdown/html_to_markdown.rb"]
   s.homepage    = 'http://rubygems.org/gems/hola'
   s.executables << 'html2md'
 end

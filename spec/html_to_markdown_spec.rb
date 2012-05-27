@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../lib/html_to_markdown'
+require_relative '../lib/html_to_markdown/html_to_markdown'
 require 'tmpdir'
 
 describe HtmlToMarkdown do
