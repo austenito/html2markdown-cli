@@ -7,7 +7,7 @@ class HtmlToMarkdown
 
   def initialize(output_dir = "#{Dir.pwd}/output")
     @output_dir = output_dir
-    FileUtils.mkdir(output_dir)
+    create_dir(output_dir)
   end
 
   def convert_file(file_name)
@@ -17,20 +17,20 @@ class HtmlToMarkdown
     write_file(file_name, markdown, output_dir)
   end
 
-  def convert_dir(file_name)
 
+  def convert_dir(dir_name)
+    files = File.join(dir_name, "*.html")
+    Dir.glob(files).each do |file|
+      convert_file(file)
+    end
   end
-  
-#def validate
-  #bc = BlueCloth.new(your_markdown_string_attribute)
-  #begin
-    #bc.to_html
-  #rescue
-    #errors.add(:your_markdown_string_attribute, 'has invalid markdown syntax')
-  #end
-#end
 
-private
+  private
+  def create_dir(dir)
+    unless Dir.exists?(dir)
+      FileUtils.mkdir(dir)
+    end
+  end    
 
   def valid_file?(file)
     file.include?(".html") || file.include?(".htm")
@@ -43,3 +43,12 @@ private
     file.close
   end
 end
+
+  #def validate
+  #bc = BlueCloth.new(your_markdown_string_attribute)
+  #begin
+  #bc.to_html
+  #rescue
+  #errors.add(:your_markdown_string_attribute, 'has invalid markdown syntax')
+  #end
+  #end
