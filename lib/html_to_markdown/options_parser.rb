@@ -32,7 +32,7 @@ class OptionsParser
   def parse_file
     file = options[:file]
     if File.exists?(file)
-      html2md.convert_file(options[:file])
+      convert(file)
     else
       puts "File doesn't exist. Use --help for options"
     end
@@ -41,9 +41,21 @@ class OptionsParser
   def parse_dir
     dir = options[:dir]
     if Dir.exists?(dir)
-      html2md.convert_dir(options[:dir])
+      files = File.join(dir, "*.html")
+      Dir.glob(files).each do |file|
+        convert(file)
+      end
     else 
       puts "Directory doesn't exist. Use --help for options"
+    end
+  end
+
+  def convert(file)
+    begin
+      puts "Converting: #{file}"
+      html2md.convert_file(file)
+    rescue RuntimeError => e
+      puts "Failed to convert: #{file}: #{e}"
     end
   end
 end

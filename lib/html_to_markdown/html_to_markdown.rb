@@ -11,19 +11,10 @@ class HtmlToMarkdown
   end
 
   def convert_file(file_name)
-    puts "Converting: #{file_name}"
     reverse_md = ReverseMarkdown.new
     contents = File.open(file_name).read
     markdown = reverse_md.parse_string(contents)
     write_file(file_name, markdown, output_dir)
-  end
-
-
-  def convert_dir(dir_name)
-    files = File.join(dir_name, "*.html")
-    Dir.glob(files).each do |file|
-      convert_file(file)
-    end
   end
 
   private
@@ -44,12 +35,3 @@ class HtmlToMarkdown
     file.close
   end
 end
-
-  #def validate
-  #bc = BlueCloth.new(your_markdown_string_attribute)
-  #begin
-  #bc.to_html
-  #rescue
-  #errors.add(:your_markdown_string_attribute, 'has invalid markdown syntax')
-  #end
-  #end

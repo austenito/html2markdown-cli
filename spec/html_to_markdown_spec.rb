@@ -40,33 +40,5 @@ describe HtmlToMarkdown do
       end
     end
   end
-
-  context "#convert_dir" do
-    context "when no output directory is specified" do
-      let(:html_to_md) { HtmlToMarkdown.new }
-      after(:each) do
-        FileUtils.remove_entry_secure(html_to_md.output_dir)
-      end
-
-      it "creates markdown files in ./output" do
-        html_to_md.convert_dir(input_dirname)
-        Dir.entries(html_to_md.output_dir).include?(markdown_file).should == true
-        Dir.entries(html_to_md.output_dir).include?(other_markdown_file).should == true
-      end
-    end
-
-    context "when output directory is specified" do
-      let(:html_to_md) { HtmlToMarkdown.new(output_dir) }
-      after(:each) do
-        FileUtils.remove_entry_secure(html_to_md.output_dir)
-      end
-
-      it "creates markdown files in specified output dir" do
-        html_to_md.convert_dir(input_dirname)
-        Dir.entries(output_dir).include?(markdown_file).should == true
-        Dir.entries(output_dir).include?(other_markdown_file).should == true
-      end
-    end
-  end
 end
 
