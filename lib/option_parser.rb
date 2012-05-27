@@ -1,7 +1,7 @@
 require 'bundler'
 require 'trollop'
 Bundler.setup
-require './html_to_markdown'
+require_relative 'html_to_markdown'
 
 opts = Trollop::options do
   opt :dir, "Directory containing html files to convert", :type => :string
@@ -9,5 +9,6 @@ opts = Trollop::options do
   opt :output_dir, "The output location of the converted files", :type => :string, :default => "./output"
 end
 
-converter = HtmlToMarkdown.new(opts)
-converter.convert
+puts opts
+#converter = HtmlToMarkdown.new(opts)
+#converter.convert
