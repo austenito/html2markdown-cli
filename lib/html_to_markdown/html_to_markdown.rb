@@ -17,7 +17,7 @@ class HtmlToMarkdown
     write_file(file_name, markdown, output_dir)
   end
 
-  private
+private
   def create_dir(dir)
     unless Dir.exists?(dir)
       FileUtils.mkdir(dir)
