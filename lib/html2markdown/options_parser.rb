@@ -1,4 +1,4 @@
-require_relative 'html_to_markdown'
+require_relative 'html2markdown_cli'
 
 class OptionsParser
   attr_accessor :options, :html2md
@@ -7,9 +7,9 @@ class OptionsParser
     @options = options
 
     if option?(:output_dir)
-      @html2md = HtmlToMarkdown.new(options[:output_dir])
+      @html2md = Html2MarkdownCli.new(options[:output_dir])
     else
-      @html2md = HtmlToMarkdown.new
+      @html2md = Html2MarkdownCli.new
     end
   end
 

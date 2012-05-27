@@ -1,8 +1,8 @@
 require 'rspec'
-require_relative '../lib/html_to_markdown/html_to_markdown'
+require_relative '../lib/html2markdown/html2markdown_cli'
 require 'tmpdir'
 
-describe HtmlToMarkdown do
+describe Html2MarkdownCli do
   let(:output_dir) { Dir.mktmpdir }
   let(:input_filename) { "test.html" }
   let(:other_input_filename) { "test2.html" }
@@ -17,7 +17,7 @@ describe HtmlToMarkdown do
 
   context "#convert_file" do
     context "when no output directory is specified" do
-      let(:html_to_md) { HtmlToMarkdown.new }
+      let(:html_to_md) { Html2MarkdownCli.new }
       after(:each) do
         FileUtils.remove_entry_secure(html_to_md.output_dir)
       end
@@ -29,7 +29,7 @@ describe HtmlToMarkdown do
     end
 
     context "when an output directory is specified" do
-      let(:html_to_md) { HtmlToMarkdown.new(output_dir) }
+      let(:html_to_md) { Html2MarkdownCli.new(output_dir) }
       after(:each) do
         FileUtils.remove_entry_secure(html_to_md.output_dir)
       end

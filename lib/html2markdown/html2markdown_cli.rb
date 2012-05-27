@@ -1,8 +1,7 @@
-require 'bundler'
-Bundler.setup
 require 'reverse-markdown'
+require 'fileutils'
 
-class HtmlToMarkdown
+class Html2MarkdownCli
   attr_accessor :output_dir
 
   def initialize(output_dir = "#{Dir.pwd}/output")

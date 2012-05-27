@@ -1,13 +1,8 @@
-GIT
-  remote: https://github.com/jrobertson/reverse-markdown
-  revision: 826c24fd172c10aa0e43f67cde65f151cbb1c75e
-  specs:
-    reverse-markdown (0.1.2)
-
 GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.3)
+    reverse-markdown (0.1.2)
     rspec (2.10.0)
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)
@@ -22,6 +17,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  reverse-markdown!
+  reverse-markdown
   rspec
   trollop

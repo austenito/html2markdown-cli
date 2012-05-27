@@ -1,7 +1,5 @@
-require 'bundler'
 require 'trollop'
-Bundler.setup
-require_relative 'html_to_markdown/options_parser'
+require_relative 'html2markdown/options_parser'
 
 p = Trollop::Parser.new do
   opt :dir, "Directory containing html files to convert", :type => :string
